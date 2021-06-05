@@ -8,116 +8,58 @@ if [ $UID != 0 ]; then
     exit 1
 fi
 
-#$1=create_img
+SCRIPT_DIR=$(pwd)
 
-SCRIPT_COMMON_FILE=$(pwd)/rak/rak/shell_script/rak_common.sh
-source $SCRIPT_COMMON_FILE
+# Request gateway configuration data
+# There are two ways to do it, manually specify everything
+# or rely on the gateway EUI and retrieve settings files from remote (recommended)
+echo "Gateway configuration:"
 
-print_help()
-{
-    echo "--help                Print help info."
-    echo ""
-    echo "--chirpstack=[install/not_install]"
-    echo "                      Chirpstack, default value is install"
-    echo ""
-    exit
-}
+# Install LoRaWAN packet forwarder repositories
+INSTALL_DIR="./"
+if [ ! -d "$INSTALL_DIR" ]; then mkdir $INSTALL_DIR; fi
+pushd $INSTALL_DIR
 
-rpi_model=`do_get_rpi_model`
+# Build LoRa gateway app
 
-ARGS=`getopt -o "" -l "help,img,chirpstack:" -- "$@"`
+wget https://github.com/Lora-net/sx1302_hal/archive/V2.0.1.tar.gz -O ./rak2287.tar.gz
 
-eval set -- "${ARGS}"
+tar -zxvf ./rak2287.tar.gz
 
-INSTALL_CHIRPSTACK=1
-
-CREATE_IMG=""
-
-while true; do
-    case "${1}" in
-        --help)
-        shift;
-        print_help
-        ;;
-
-        --img)
-        shift;
-        CREATE_IMG=create_img
-        ;;
-
-        --chirpstack)
-        shift;
-        if [[ -n "${1}" ]]; then
-            if [ "not_install" = "${1}" ]; then
-                INSTALL_CHIRPSTACK=0
-            elif [ "install" = "${1}" ]; then
-                INSTALL_CHIRPSTACK=1
-            else
-                echo "invalid value"
-                exit
-            fi
-
-            if [ $rpi_model -ne 3 ] && [ $rpi_model -ne 4 ]; then
-                INSTALL_CHIRPSTACK=0
-            fi
-            shift;
-        fi
-        ;;
-
-        --)
-        shift;
-#        echo "Invalid para.1"
-        break;
-        ;;
-#        *) 
-#		echo "Invalid para.2"; break ;;
-    esac
-done
-
-# select gw model
-./choose_model.sh $CREATE_IMG
-
-apt update
-pushd rak
-./install.sh $CREATE_IMG
 sleep 1
-popd
-set +e
-write_json_chirpstack_install $INSTALL_CHIRPSTACK
-set -e
+mv sx1302_hal-2.0.1 sx1302_hal
+pushd sx1302_hal
+make clean
+cp ../loragw_stts751.c libloragw/src/loragw_stts751.c -f
+cp ../test_loragw_gps_uart.c libloragw/tst/test_loragw_gps.c -f
+cp ../test_loragw_gps_i2c.c libloragw/tst/test_loragw_gps_i2c.c -f
 
-pushd ap
-./install.sh $CREATE_IMG
-sleep 1
+#mkdir -p packet_forwarder/lora_pkt_fwd/
+#cp ../reset_lgw.sh packet_forwarder/lora_pkt_fwd/reset_lgw.sh -f
+
+cp ../lora_pkt_fwd.c packet_forwarder/src/lora_pkt_fwd.c
+make
+rm packet_forwarder/lora_pkt_fwd/obj/* -f
 popd
 
-if [ "$INSTALL_CHIRPSTACK" = 1 ]; then
-    pushd chirpstack
-    ./install.sh $CREATE_IMG
-    sleep 1
-    popd
+if [ -d $INSTALL_DIR/packet_forwarder ]; then
+    rm -rf $INSTALL_DIR/packet_forwarder/
+fi
+cp $INSTALL_DIR/sx1302_hal/packet_forwarder $INSTALL_DIR/ -rf
+cp $INSTALL_DIR/sx1302_hal/libloragw $INSTALL_DIR/lora_gateway -rf
+if [ -f $SCRIPT_DIR/../../lte/lte_test ]; then
+	cp $SCRIPT_DIR/../../lte/lte_test $INSTALL_DIR/lora_gateway/
+	cp $SCRIPT_DIR/reset_lgw.sh $INSTALL_DIR/lora_gateway/
+fi
+mv $INSTALL_DIR/packet_forwarder/lora_pkt_fwd $INSTALL_DIR/packet_forwarder/lora_pkt_fwd_bak
+mkdir -p $INSTALL_DIR/packet_forwarder/lora_pkt_fwd
+mv $INSTALL_DIR/packet_forwarder/lora_pkt_fwd_bak $INSTALL_DIR/packet_forwarder/lora_pkt_fwd/lora_pkt_fwd
+
+if [ -d global_conf ]; then
+	cp global_conf $INSTALL_DIR/packet_forwarder/lora_pkt_fwd/ -rf
+	cp global_conf/global_conf.eu_863_870.json $INSTALL_DIR/packet_forwarder/lora_pkt_fwd/global_conf.json
+	sed -i "s/^.*server_address.*$/\t\"server_address\": \"127.0.0.1\",/" $INSTALL_DIR/packet_forwarder/lora_pkt_fwd/global_conf.json
 fi
 
-pushd lte
-./install.sh $CREATE_IMG
-sleep 1
-popd
-
-pushd lora
-./install.sh $CREATE_IMG
-sleep 1
-popd
-if [ "$CREATE_IMG" = "create_img" ]; then
-    pushd /usr/local/rak
-    mv bin bin_bak
-    popd
-fi
-
-pushd sysconf
-./install.sh $CREATE_IMG
-sleep 1
-popd
-
-echo_success "*********************************************************"
-echo_success "*  The RAKwireless gateway is successfully installed!   *"
-echo_success "*********************************************************"
+cp reset_lgw.sh $INSTALL_DIR/packet_forwarder/lora_pkt_fwd/reset_lgw.sh
+rm -f $INSTALL_DIR/packet_forwarder/lora_pkt_fwd/local_conf.json
