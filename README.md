@@ -41,30 +41,41 @@ clone https://github.com/RightToPrivacy/rak_common_for_gateway.git
 
 9.) inside gateway-config go to packet forwarder config editing
 
-10.) Verify SPI device (concentrator) says /dev/spidev0.0 and not something else (installation of option #7 (Pine64 Gateway) should set this for you)
+- Verify SPI device (concentrator) says /dev/spidev0.0 (installation of option #7 (Pine64 Gateway) should have set this for you)
 
-11.) make sure the GPS device is /dev/ttyS2 (Installation of option #7 (Pine64 Gateway) should set this for you)
+- Verify GPS device is /dev/ttyS2 (installation of option #7 (Pine64 Gateway) should have set this for you)
 
-12.) Save the Packet Forwarder config and change the LoRa channel config to either TTN (thethingsnetwork or Other server)
+- Save the Packet Forwarder config
 
-13.) Select your country's LoRa location/frequency
+10) Change the LoRa channel config to either TTN (thethingsnetwork) OR for Chirpstack, select other server
 
-14.) Restart Packet Forwarder and quit
+11.) Select your country's LoRa location/frequency
 
-15.) Check the status by viewing journalctl or systemctl status ttn-gateway; if not active, check journalctl to see what failed and its reasoning
+12.) Restart Packet Forwarder and quit
 
-16.) You may need to enter gateway-config again and re-enter the devices in case a 3rd party package changes them (something I noticed and have not edited atm)
+13.) Check the status by viewing journalctl or systemctl status ttn-gateway; if not active, check journalctl to see what failed, and reason for failure.
 
-17.) Once GPS registers reliable signal (usually a few min after starting) you should see your Gateway on TTN map and tcpdump|grep 1700 should show valid radius packets. 
+14.) Once GPS registers reliable signal (usually a few min after starting) you should see your Gateway on TTN map and tcpdump|grep 1700 should show valid radius packets. 
 
 You should also see the Gateway version + EUI and other information on starting the concentrator, without any errors.. If you see errors, check troubleshooting below. I have examples of journalctl log at:
 https://forum.pine64.org/showthread.php?tid=13682&highlight=pinedio
 
-[ will edit more soon please check back and feel free to add/fix anything that you notice to help us get Pine64 Gateway running properly! :) ]
+ADDITIONAL INFORMATION:
+
+If you chose Chirpstack you may enter the web interface by viewing: http://gatewayIPaddress:8080
+
+DEFAULT CREDENTIALS (FOR CHIRPSTACK):
+
+Login: admin
+
+password: admin
+
+
+[ will edit more please check back and feel free to add/fix anything that you notice to help us get Pine64 Gateway running properly! :) ]
 
 ***TROUBLESHOOTING:
 
-The Things Network Gateway Commands (SSH/Shell access):
+The Things Network Gateway Systemd Commands (SSH/Shell access):
 Check the status of ttn-gateway (if selecting The Things Network Channel) service by issuing:
 systemctl status ttn-gateway
 Restart TTN Gateway:
@@ -76,6 +87,9 @@ systemctl start ttn-gateway
 
 Check gateway version/ID
 gateway-version
+
+Find gateway EUI (run only after installing/setting up gateway numbered steps above):
+journalctl | grep EUI
 
 Configuration:
 sudo gateway-config
