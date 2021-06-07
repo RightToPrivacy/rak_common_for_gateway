@@ -6,8 +6,6 @@ The aim of this project is to help users to use the RAK Raspberry Pi Developer G
 
 --------------------------------------------------------------------------
 
-[BEGIN EDIT INSTRUCTION FOR PINE64 GATEWAY (ONLY TESTED FOR TTN SO FAR]:
-
 *** EDITED for work with Pine64 Gateway - work in progress more information/instruction soon *** -RTP
 
 ### Pine64 Gateway Setup
@@ -17,15 +15,16 @@ please do post an issue/submit or fork something! Thanks! :)
 
 General Steps:
 
-*** First make sure you have LoRa antenna + GPS antenna (preferably outside or antenna by the window- without GPS it will not show up on TTN); ***Very Important*** to
-have antennas before attempting to setup or you could damage your device ***
+REQUIREMENTS:
 
-1.) Download your distribution of choice
-(you can try one of the SOPINE/LTS capable distros; There was a boot problem on the Armbian image as of this writing I have patched an Armbian image you can find here:
-https://mega.nz/file/Wd5CGRhB#spBqSQrhLm_gIPtRexV9OOC8T3YoVk9VuHopFs4Ho9o
-)
+*** LoRa  + GPS antenna (preferably outside or antenna by the window- without GPS it will not show up on TTN); 
+***Very Important*** to have antennas connected before attempting to setup or you could DAMAGE your Gateway ***
+
+1.) Download SOPINE/LTS distribution of choice (Armbian used in example below)
+For Pine64 Gateway select a SOPINE/LTS compatible
 
 2.) After installing an LTS/SOPINE compatible image to sdcard/emmc, boot up and clone this fork by issuing:
+
 clone https://github.com/RightToPrivacy/rak_common_for_gateway.git
 
 3.) Now issue: sudo armbian-config -> System and enable UART/SPI/I2C (Concentrator/GPS/Temp sensor)
@@ -38,15 +37,15 @@ clone https://github.com/RightToPrivacy/rak_common_for_gateway.git
 
 7.) Follow rak_common_for_gateway instructions
 
-8.) After installing everything (using clone edit) open the command: sudo gateway-config
+8.) After installing everything open the command: sudo gateway-config
 
 9.) inside gateway-config go to packet forwarder config editing
 
-10.) make sure the SPI device says /dev/spidev0.0 and not something else 
+10.) Verify SPI device (concentrator) says /dev/spidev0.0 and not something else (installation of option #7 (Pine64 Gateway) should set this for you)
 
-11.) make sure the GPS device is /dev/ttyS2 
+11.) make sure the GPS device is /dev/ttyS2 (Installation of option #7 (Pine64 Gateway) should set this for you)
 
-12.) Save the Packet Forwarder config and change the LoRa channel config to TTN (The Things Network)
+12.) Save the Packet Forwarder config and change the LoRa channel config to either TTN (thethingsnetwork or Other server)
 
 13.) Select your country's LoRa location/frequency
 
