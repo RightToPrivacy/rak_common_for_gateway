@@ -6,7 +6,7 @@ The aim of this project is to help users to use the RAK Raspberry Pi Developer G
 
 --------------------------------------------------------------------------
 
-*** EDITED for work with Pine64 Gateway - work in progress more information/instruction soon *** -RTP
+*** EDITED for work with Pine64 Gateway - work in progress will add information as helpful/necessary *** -RTP
 
 ### Pine64 Gateway Setup
 
