@@ -8,7 +8,7 @@ The aim of this project is to help users to use the RAK Raspberry Pi Developer G
 
 ## EDITED for work with Pine64 Gateway - work in progress will add information as helpful/necessary *** -RTP
 
-## UPDATE: I put together an example Armbian image with this fork for Pinedio (Pine64) Gateway. Donwload Here: https://mega.nz/file/nI42BCAD#oUWRJYg0UC4OwDBbScwuSjSkN3A8MHVj03uBRw0prjc
+## UPDATE: I put together an example Armbian image with this fork (preinstalled) for Pinedio (Pine64) Gateway. Donwload Here: https://mega.nz/file/nI42BCAD#oUWRJYg0UC4OwDBbScwuSjSkN3A8MHVj03uBRw0prjc
 
 ### Pine64 Gateway Setup
 
