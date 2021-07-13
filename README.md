@@ -6,7 +6,9 @@ The aim of this project is to help users to use the RAK Raspberry Pi Developer G
 
 --------------------------------------------------------------------------
 
-*** EDITED for work with Pine64 Gateway - work in progress will add information as helpful/necessary *** -RTP
+## EDITED for work with Pine64 Gateway - work in progress will add information as helpful/necessary *** -RTP
+
+## UPDATE: I put together an example Armbian image with this fork for Pinedio (Pine64) Gateway. Donwload Here: https://mega.nz/file/nI42BCAD#oUWRJYg0UC4OwDBbScwuSjSkN3A8MHVj03uBRw0prjc
 
 ### Pine64 Gateway Setup
 
@@ -15,7 +17,7 @@ please do post an issue/submit or fork something! Thanks! :)
 
 General Steps:
 
-REQUIREMENTS:
+## REQUIREMENTS:
 
 *** LoRa  + GPS antenna (preferably outside or antenna by the window- without GPS it will not show up on TTN); 
 ***Very Important*** to have antennas connected before attempting to setup or you could DAMAGE your Gateway ***
