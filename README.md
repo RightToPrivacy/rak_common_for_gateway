@@ -32,6 +32,7 @@ clone https://github.com/RightToPrivacy/rak_common_for_gateway.git
 3.) Now issue: sudo armbian-config -> System -> Hardware and enable 'i2c0', 'spi-spidev', 'uart2' (Concentrator/GPS/Temp sensor)
 
 4.) Then go 'back' to edit BootEnv (or edit file /boot/armbianEnv.txt). Add this line in it (make sure it exists): param_spidev_spi_bus=0
+    Additionall ensure it now has 'overlays=i2c0 spi-spidev uart2' (without quotes) on a single line (in BootEnv or /boot/armbianEnv.txt. Both = same location)
 
 5.) Reboot for changes to take effect.  
 
