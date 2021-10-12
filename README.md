@@ -29,9 +29,9 @@ For Pine64 Gateway select a SOPINE/LTS compatible
 
 clone https://github.com/RightToPrivacy/rak_common_for_gateway.git
 
-3.) Now issue: sudo armbian-config -> System and enable UART/SPI/I2C (Concentrator/GPS/Temp sensor)
+3.) Now issue: sudo armbian-config -> System -> Hardware and enable 'i2c0', 'spi-spidev', 'uart2' (Concentrator/GPS/Temp sensor)
 
-4.) Make sure /boot/armbianEnv.txt has this line in it: param_spidev_spi_bus=0
+4.) Then go 'back' to edit BootEnv (or edit file /boot/armbianEnv.txt). Add this line in it (make sure it exists): param_spidev_spi_bus=0
 
 5.) Reboot for changes to take effect.  
 
