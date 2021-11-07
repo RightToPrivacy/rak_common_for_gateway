@@ -1,6 +1,12 @@
 ## UPDATE: Pinedio Armbian image with this fork preinstalled (Chirpstack/TTN options) and concentrator/GPS hardware enabled
 
-Download here: https://mega.nz/file/jYwEQS7J#91BTf3k1AiEUZ3aL91ObhgCRMba5a-u5j_rjuJSDwlw
+Download here to save yourself trouble (ready image preinstalled): https://mega.nz/file/jYwEQS7J#91BTf3k1AiEUZ3aL91ObhgCRMba5a-u5j_rjuJSDwlw
+
+### CHECKSUM (INTEGRITY)
+
+SHA1: 61b6292dc36f370d9b82e6c1e7273695a775251f
+
+SHA256: dedcb121cfed1e11a41e4cb861b8782244e7057f5805f3a8b5553914d353a5ba
 
 ### Image Credentials: 
 
@@ -22,8 +28,7 @@ The aim of this project is to help users to use the RAK Raspberry Pi Developer G
 
 ### Pine64 Gateway Setup
 
-*NOTE: my goal was basically at this point to get the concentrator started/GPS working. If you notice changes needed
-please do post an issue/submit or fork something! Thanks! :)
+# NOTE: YOU CAN FIND A READY TO USE ALL IN ONE CHIRPSTACK + PINEDIO GATEWAY HARDWARE ENABLED + TTN IMAGE DOWNLOAD AT TOP OF THIS README TO SAVE SETUP. :)
 
 General Steps:
 
