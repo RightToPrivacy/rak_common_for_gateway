@@ -1,8 +1,8 @@
 # UPDATE: Sharing ready to use PineDio (all in one) Gateway image [11.15.2021] (w/RAKWireless Chirpstack/TTN preinstalled) can be found for download here:
 
-https://www.buymeacoffee.com/politictech/pinedio-image-new-download (Blog Post)
+Download Post + checksums/credentials: https://www.buymeacoffee.com/politictech/pinedio-image-new-download (Blog Post)
 
-https://politictech.wordpress.com/2021/11/09/new-pinedio-image-automatic-grow-to-disk/ (Backup Blog)
+https://politictech.wordpress.com/2021/11/09/new-pinedio-image-automatic-grow-to-disk/ (Backup Blog post)
 
 (Next See: https://lupyuen.github.io/articles/gateway?5#install-pinedio-gateway great tutorial for this with pictures!)
 
