@@ -1,4 +1,4 @@
-# UPDATE: Sharing ready to use PineDio (all in one) Gateway image [11.15.2021] (w/RAKWireless Chirpstack/TTN preinstalled but optional) can be found for download here:
+## UPDATE: Sharing ready to use PineDio (all in one) Gateway image [11.30.2021] (w/RAKWireless Chirpstack/TTN preinstalled but optional) can be found for download here (Armbian with this rak_common_for_gateway preinstalled and hardware enabled, concentrator/GPS started):
 
 ### Download Post + checksums/credentials:
 
