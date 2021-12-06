@@ -4,9 +4,9 @@
 
 Location 1: https://politictech.wordpress.com/2021/11/30/pinedio-mesh-net-gateway-new-improved-download-lora/ (Blog post)
 
-Location 2: https://www.buymeacoffee.com/politictech/pinedio-image-new-download
+Location 2: https://www.buymeacoffee.com/politictech/pinedio-image-new-download (other blog with posts organized by category)
 
-##### On the first boot it will grow root to meet size of your disk, and generate fresh ssh, unique for each flashed copy.
+##### On the first boot rootfs will grow root to meet size of your disk, and generate set of fresh ssh, unique for each flashed copy.
 
 (Next See: https://lupyuen.github.io/articles/gateway?5#install-pinedio-gateway great tutorial for further configuration with pictures!)
 
