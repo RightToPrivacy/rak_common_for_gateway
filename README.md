@@ -1,10 +1,14 @@
 # UPDATE: Sharing ready to use PineDio (all in one) Gateway image [11.15.2021] (w/RAKWireless Chirpstack/TTN preinstalled but optional) can be found for download here:
 
-Download Post + checksums/credentials: https://politictech.wordpress.com/2021/11/30/pinedio-mesh-net-gateway-new-improved-download-lora/ (Blog post)
+### Download Post + checksums/credentials:
 
-On the first boot it will grow root to meet size of disk and generate ssh unique for each flashed copy.
+Location 1: https://politictech.wordpress.com/2021/11/30/pinedio-mesh-net-gateway-new-improved-download-lora/ (Blog post)
 
-(Next See: https://lupyuen.github.io/articles/gateway?5#install-pinedio-gateway great tutorial for this with pictures!)
+Location 2: https://www.buymeacoffee.com/politictech/pinedio-image-new-download
+
+##### On the first boot it will grow root to meet size of your disk, and generate fresh ssh, unique for each flashed copy.
+
+(Next See: https://lupyuen.github.io/articles/gateway?5#install-pinedio-gateway great tutorial for further configuration with pictures!)
 
 ### HARDWARE (PineDio Gateway)
 
