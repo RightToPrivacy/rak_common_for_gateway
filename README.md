@@ -1,10 +1,12 @@
-## UPDATE: Sharing ready to use PineDio (all in one) Gateway image [11.30.2021] (w/RAKWireless Chirpstack/TTN preinstalled but optional) can be found for download here (Armbian with this rak_common_for_gateway preinstalled and hardware enabled, concentrator/GPS started):
+### UPDATE: Sharing ready to use PineDio (all in one with Chirpstack running by default) Gateway image [UPDATED: 01.01.2022] 
 
 ### Download Post + checksums/credentials:
 
-Location 1: https://politictech.wordpress.com/2021/11/30/pinedio-mesh-net-gateway-new-improved-download-lora/ (Blog post)
+    SHA1: fe0ebdb2c3f71f50b5d070ce6561c86a07678da5
 
-Location 2: https://www.buymeacoffee.com/politictech/pinedio-image-new-download (other blog with posts organized by category)
+    SHA256: 53de0febbf0f0a42e8da79576c8af518e591d227545a41a4db538acae0ae8a92
+
+#### DOWNLOAD LOCATION:  https://mega.nz/file/yFAFnYYK#tcMNFXdwNberzOjOKACj4lKUy6NanduY6Vxdf0jF0vg
 
 ##### On the first boot rootfs will grow root to meet size of your disk, and generate set of fresh ssh, unique for each flashed copy.
 
