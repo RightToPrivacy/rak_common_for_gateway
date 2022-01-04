@@ -1,14 +1,16 @@
-### UPDATE: Sharing ready to use PineDio (all in one with Chirpstack running by default) Gateway image [UPDATED: 01.01.2022] 
+### UPDATE: Sharing ready to use PineDio (all in one with Chirpstack running by default) Gateway image [UPDATED: 01.04.2022] 
 
 ### Download Post + checksums/credentials:
 
-    SHA1: fe0ebdb2c3f71f50b5d070ce6561c86a07678da5
+    SHA1: 2386916d8d71122b4b7d0c8de1a07af120b07b2c
 
-    SHA256: 53de0febbf0f0a42e8da79576c8af518e591d227545a41a4db538acae0ae8a92
+    SHA256: 03f37a745d088139682d55fb4befb9a5348c1b6513b679dd03ba069576d2b86f
 
-#### DOWNLOAD LOCATION:  https://mega.nz/file/yFAFnYYK#tcMNFXdwNberzOjOKACj4lKUy6NanduY6Vxdf0jF0vg
+#### DOWNLOAD LOCATION:  https://mega.nz/file/vJxAABJZ#FpH4gzpy9QEqh3sJAYTz7tIP7aCE8XaC8kBvX2t4ZKc
 
-##### On the first boot rootfs will grow root to meet size of your disk, and generate set of fresh ssh, unique for each flashed copy.
+*** Interested in The Things Network? (After flashing, recommended guide start to finish: https://lupyuen.github.io/articles/gateway?5#install-pinedio-gateway great tutorial for further configuration with pictures!) Thank You Lup Yuen Lee! 
+
+rootfs will grow root to meet size of your disk, and generate set of fresh ssh, unique for each flashed copy.
 
 (Next See: https://lupyuen.github.io/articles/gateway?5#install-pinedio-gateway great tutorial for further configuration with pictures!)
 
