@@ -1,20 +1,8 @@
-### UPDATE: Sharing ready to use PineDio (all in one with Chirpstack running by default) Gateway image [UPDATED: 01.04.2022] 
+### UPDATE: Sharing ready to use PineDio (all in one with Chirpstack running by default) Gateway image (see link to github Pine64 Mesh below):
 
-### Download Post + checksums/credentials:
+### Latest PineDio Gateway Download With Chirpstack + Concentrator/GPS started + checksums/credentials all will be listed here: https://github.com/RightToPrivacy/Pine64-Mesh-Related
 
-    SHA1: 2386916d8d71122b4b7d0c8de1a07af120b07b2c
-
-    SHA256: 03f37a745d088139682d55fb4befb9a5348c1b6513b679dd03ba069576d2b86f
-
-#### DOWNLOAD LOCATION:  https://mega.nz/file/vJxAABJZ#FpH4gzpy9QEqh3sJAYTz7tIP7aCE8XaC8kBvX2t4ZKc
-
-*** Interested in The Things Network? (After flashing, recommended guide start to finish: https://lupyuen.github.io/articles/gateway?5#install-pinedio-gateway great tutorial for further configuration with pictures!) 
-
-Big Thank You to Lup Yuen Lee for the great guide above! 
-
-rootfs will grow root to meet size of your disk, and generate set of fresh ssh, unique for each flashed copy.
-
-(Next See: https://lupyuen.github.io/articles/gateway?5#install-pinedio-gateway great tutorial for further configuration with pictures!)
+(Related: https://lupyuen.github.io/articles/gateway?5#install-pinedio-gateway great tutorial for further configuration with pictures!)
 
 ### HARDWARE (PineDio Gateway)
 
@@ -22,7 +10,7 @@ https://www.pine64.org (community)
 
 https://www.pine64.com (Pine64 Store to carry the PineDio Gateway)
 
-
+######################################################
 # BEGIN README: 
 
 # rak_common_for_gateway
